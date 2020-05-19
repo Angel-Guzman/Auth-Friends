@@ -1,11 +1,18 @@
 import React from 'react';
 
 class FriendsList extends React.Component {
+    state = {
+        friends: []
+    };
+
+    // componentDidMount() {
+    //     this.getData();
+    // }
 
     render() {
         return (
             <div>
-                <p>FRIENDSLIST</p>
+                <h2>FRIENDSLIST</h2>
             </div>
         )
     }

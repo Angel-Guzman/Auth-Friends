@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios from 'axios';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 class Login extends React.Component {
@@ -24,7 +23,7 @@ class Login extends React.Component {
         e.preventDefault();
 
         axiosWithAuth()
-        .post('http://localhost:5000/api/login', this.state.credentials)
+        .post('/api/login', this.state.credentials)
         .then(res => {
             // console.log(res)
             // res.data.payload
