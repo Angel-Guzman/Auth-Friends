@@ -2,13 +2,17 @@ import React from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 class AddFriend extends React.Component {
+    constructor(props) {
+        super(props);   
+    }
     state = {
         friend: {
             id: Date.now(),
             name: '',
             age: '',
             email: ''
-        }
+        },
+        hasUpdated: false
     }
 
     handleChange = e => {
@@ -27,9 +31,16 @@ class AddFriend extends React.Component {
         .then(res => {
             console.log(res)
             // localStorage.setItem('token', res.data)
+            this.props.updateFriends(res.data)
         })
         .catch(err => console.log(err));
     };
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (props) {
+
+    //     }
+    // }
 
     render() {
         return (

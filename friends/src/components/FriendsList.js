@@ -12,6 +12,12 @@ class FriendsList extends React.Component {
         this.getData();
     }
 
+    updateFriends = newState => {
+        this.setState({ 
+            friends: newState
+        })
+    }
+
     getData = () => {
         axiosWithAuth()
         .get('/api/friends')
@@ -28,7 +34,7 @@ class FriendsList extends React.Component {
     render() {
         return (
             <div>
-                <AddFriend />
+                <AddFriend updateFriends={this.updateFriends} />
                 <h2>FRIENDSLIST</h2>
                 {this.state.friends.map(friend => (
                     <Friend key={friend.id} friend={friend} />
